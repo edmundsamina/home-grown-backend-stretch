@@ -1,5 +1,5 @@
 import express from "express";
-import { getAllUsers, getUserAndPlotByFirebaseID, getAllPosts } from "../models/index.js";
+import { getAllUsers, getUserAndPlotByFirebaseID, getAllPosts,getPostsByFirebaseID } from "../models/index.js";
 
 
 export const router = express.Router();
@@ -23,6 +23,16 @@ router.get("/users/:id", async function (req, res) {
 
 router.get("/posts", async function (req, res) {
   const posts = await getAllPosts();
+  res.status(200).json({
+    success: true,
+    payload: posts,
+  });
+});
+
+
+router.get("/posts/:id", async function (req, res) {
+  const firebase_id = req.params.id
+  const posts = await getPostsByFirebaseID(firebase_id);
   res.status(200).json({
     success: true,
     payload: posts,

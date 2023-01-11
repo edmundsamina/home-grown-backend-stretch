@@ -22,3 +22,12 @@ export async function getUserAndPlotByFirebaseID(firebase_id) {
     const posts = result.rows;
     return posts;
   }
+
+
+  export async function getPostsByFirebaseID(firebase_id) {
+    const sqlQuery =   'SELECT * FROM posts INNER JOIN users ON posts.firebase_id = users.firebase_id INNER JOIN plots ON posts.plot_id = plots.plot_id INNER JOIN crops ON posts.crop_id = crops.crop_id WHERE posts.firebase_id = $1;';
+    const sqlDependency = [firebase_id];
+    const result = await pool.query(sqlQuery, sqlDependency);
+    const posts = result.rows;
+    return posts;
+  }
