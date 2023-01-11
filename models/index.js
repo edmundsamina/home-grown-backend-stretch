@@ -6,3 +6,13 @@ export async function getAllUsers() {
   const users = result.rows;
   return users;
 }
+
+
+export async function getUserAndPlotByFirebaseID(firebase_id) {
+    const sqlQuery =   'SELECT u.user_id, u.firebase_id, u.profile_picture, u.first_name, u.last_name, u.email, u.username, u.rating, p.plot_id, p.plot_size, p.percentage_used, p.plot_image, p.location FROM users u INNER JOIN plots p ON u.firebase_id = p.firebase_id WHERE u.firebase_id = $1;';
+    const sqlDependency = [firebase_id];
+    const result = await pool.query(sqlQuery, sqlDependency);
+    const user = result.rows;
+    return user;
+  }
+
