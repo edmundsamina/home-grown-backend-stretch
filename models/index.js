@@ -31,3 +31,11 @@ export async function getUserAndPlotByFirebaseID(firebase_id) {
     const posts = result.rows;
     return posts;
   }
+
+  export async function createNewUser(body){
+    const sqlQuery = `INSERT INTO users (firebase_id, profile_picture, first_name, last_name, email, username) VALUES ($1, $2, $3, $4, $5, $6)`;
+    const sqlDependency = [body.firebase_id, body.profile_picture, body.first_name, body.last_name, body.email, body.username];
+    const result =  await pool.query(sqlQuery, sqlDependency);
+    const newUser = result.rows
+    return newUser;
+}

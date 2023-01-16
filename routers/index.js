@@ -1,5 +1,5 @@
 import express from "express";
-import { getAllUsers, getUserAndPlotByFirebaseID, getAllPosts,getPostsByFirebaseID } from "../models/index.js";
+import { getAllUsers, getUserAndPlotByFirebaseID, getAllPosts,getPostsByFirebaseID, createNewUser } from "../models/index.js";
 
 
 export const router = express.Router();
@@ -38,3 +38,12 @@ router.get("/posts/:id", async function (req, res) {
     payload: posts,
   });
 });
+
+//post router - registering users
+router.post("/users", async function (req, res) {
+  const newUser = await createNewUser(req.body);
+  res.status(201).json({
+    success: true,
+    payload: newUser,
+  });
+});     
