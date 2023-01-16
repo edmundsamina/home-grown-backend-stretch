@@ -39,3 +39,11 @@ export async function getUserAndPlotByFirebaseID(firebase_id) {
     const newUser = result.rows
     return newUser;
 }
+
+export async function deletePost(id){
+  const sqlQuery = `DELETE FROM posts WHERE posts_id = $1 RETURNING *`;
+  const sqlDependency = [id];
+  const result =  await pool.query(sqlQuery, sqlDependency);
+  const deleteUser = result.rows
+  return deleteUser;
+}
