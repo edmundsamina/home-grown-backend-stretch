@@ -101,3 +101,6 @@ VALUES
 (4,'R8zZ4FH5yCWMw0wFmVyQY5CiLsA2', 'Looking for Tips on How to Grow Carrots Successfully', 'Hey friends! I am trying to grow carrots in my garden for the first time and could use some help. Thanks in advance for any suggestions!', '10/06/2022', 2, FALSE, TRUE, 0.10),
 (5,'JMlv172GdBXuxR2E2INgbsXImNx1', 'Need Help with My Raspberries Any Suggestions?', 'I am having trouble with my raspberry plants and am seeking advice from experienced gardeners. Any suggestions or tips would be greatly appreciated!', '03/07/2022', 10, TRUE, TRUE, 0.20),
 (6, 'AmjYtjxN6ZV2yL9p50QzviJI3953', 'Expert White Onion grower looking for muscle.', 'I am an expert white onion grower with a large crop ready for harvest. I am seeking strong and able-bodied individuals to assist with the physical labor. Please contact me for more details.', '03/08/2022', 4, FALSE, TRUE, 0.40);
+
+
+ 
