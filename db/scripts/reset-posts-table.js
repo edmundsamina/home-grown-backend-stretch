@@ -4,7 +4,7 @@ import { pool } from "../index.js";
 
 try {
   await resetPostsTable();
-  console.log("Dropped, re-created and re-seeded 'SW' table");
+  console.log("Dropped, re-created and re-seeded 'posts' table");
 } catch (err) {
   console.error(err);
 } finally {

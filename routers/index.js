@@ -1,5 +1,5 @@
 import express from "express";
-import { getAllUsers, getUserAndPlotByFirebaseID, getAllPosts,getPostsByFirebaseID, createNewUser,deletePost } from "../models/index.js";
+import { getAllUsers, getUserAndPlotByFirebaseID, getAllPosts, getPostsByFirebaseID, createNewUser, deletePost } from "../models/index.js";
 
 
 export const router = express.Router();
