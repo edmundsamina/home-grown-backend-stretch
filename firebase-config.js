@@ -1,9 +1,9 @@
 
 import admin from 'firebase-admin'
-import serviceAccount from './home-grown-private-key.json' assert {type: "json"}
+import {firebaseKey} from './home-grown-private-key.js'
 
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount)
+  credential: admin.credential.cert(firebaseKey)
 });
 
 
