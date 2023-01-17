@@ -9,8 +9,6 @@ CREATE TABLE users (
     rating INT
 );
 
-
-
 INSERT INTO users (firebase_id, profile_picture, first_name, last_name, email, username, rating)
 VALUES ('tPcGjFOvZQQLjHGDOJ1Zea1vho92', 'https://cdn-icons-png.flaticon.com/512/4775/4775505.png', 'Amina', 'Edmunds', 'Amina@Edmunds.com', 'AEdmunds299', 3),
        ('ZyMPdmXZkvc13n3KRTWr81MABOj2', 'https://cdn-icons-png.flaticon.com/512/1326/1326405.png', 'Marwa', 'Dawood', 'marwa@gmail.com', 'MDawood28', 4),
@@ -28,8 +26,6 @@ CREATE TABLE crops (
 	crop_harvest_time VARCHAR (100),
 	crop_type VARCHAR (50)
 );
-
-
 
 INSERT INTO crops (crop_name, crop_image, crop_season, crop_difficulty, crop_harvest_time, crop_type)
 VALUES ( 'White Potatoes', 'https://as2.ftcdn.net/v2/jpg/02/03/93/93/1000_F_203939367_W1OoDfEmPoHO18PYhFYtTRYyEAGCo5pA.jpg', 'Spring', 2, 'Summer', 'Tuber Vegetable'),
@@ -60,8 +56,6 @@ VALUES ('tPcGjFOvZQQLjHGDOJ1Zea1vho92', 17, 'https://cdn.images.express.co.uk/im
        ('R8zZ4FH5yCWMw0wFmVyQY5CiLsA2', 43, 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/veg-garden-1525260021.jpg', 'EX15 1YB'),
        ('JMlv172GdBXuxR2E2INgbsXImNx1', 29, 'https://2.bp.blogspot.com/-TTzw-pQZWh4/Ud6kK84jasI/AAAAAAAAB4I/GgV6_Z-qjDI/s1600/backyard-raised-garden.jpg', 'DN36 5SW'),
        ('AmjYtjxN6ZV2yL9p50QzviJI3953', 14, 'https://www.organiclea.org.uk/wp-content/uploads/clydeplace2-600x375.jpg', 'PL15 9HA');
-
-
 
 
 CREATE TABLE posts (
