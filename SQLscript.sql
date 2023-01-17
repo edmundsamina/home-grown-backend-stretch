@@ -47,10 +47,10 @@ VALUES ( 'White Potatoes', 'https://as2.ftcdn.net/v2/jpg/02/03/93/93/1000_F_2039
 CREATE TABLE plots (
 	plot_id serial PRIMARY KEY,
 	firebase_id VARCHAR ( 50 ) REFERENCES users(firebase_id),
-	plot_size INT,
+	plot_size INT DEFAULT 0,
 	percentage_used DECIMAL(3,2) DEFAULT 0.00,
 	plot_image VARCHAR ( 200 ),
-	location VARCHAR (50) NOT NULL
+	location VARCHAR (50)
 );
 
 
