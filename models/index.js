@@ -47,3 +47,21 @@ export async function deletePost(id){
   const deleteUser = result.rows
   return deleteUser;
 }
+
+
+export async function createNewPost(data){
+  const sqlQuery = `INSERT INTO posts (plot_id, firebase_id, title, description, date, crop_id, percentage_of_plot) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING * `;
+  const sqlDependency = [data.plot_id, data.firebase_id, data.title, data.description, data.date, data.crop_id, data.percentage_of_plot];
+  const result =  await pool.query(sqlQuery, sqlDependency);
+  const newPost = result.rows
+  return newPost;
+}
+
+
+export async function updatePost(id, data){
+  const sqlQuery = `UPDATE posts SET title = $2, description=$3, crop_id=$4, percentage_of_plot=$5 WHERE posts_id = $1 RETURNING *`;
+  const sqlDependency = [id, data.title, data.description, data.crop_id, data.percentage_of_plot];
+  const result =  await pool.query(sqlQuery, sqlDependency);
+  const postData = result.rows
+  return postData;
+}

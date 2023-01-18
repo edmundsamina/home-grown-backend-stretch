@@ -1,5 +1,5 @@
 import express from "express";
-import { getAllUsers, getUserAndPlotByFirebaseID, getAllPosts, getPostsByFirebaseID, createNewUser, deletePost } from "../models/index.js";
+import { getAllUsers, getUserAndPlotByFirebaseID, getAllPosts, getPostsByFirebaseID, createNewUser, deletePost,createNewPost } from "../models/index.js";
 
 
 export const router = express.Router();
@@ -55,5 +55,29 @@ router.delete("/posts/:id", async function (req, res) {
   res.status(201).json({
     success: true,
     payload: deletedPost,
+  });
+});     
+
+
+
+//post router - create new post
+router.post("/posts", async function (req, res) {
+  let postData = req.body
+  const newPost = await createNewPost(postData);
+  res.status(201).json({
+    success: true,
+    payload: newPost,
+  });
+});     
+
+
+//patch router - update post
+router.patch("/posts/:id", async function (req, res) {
+  let postID = req.params.id
+  let postBody = req.body
+  const updatedPost = await updatePost(postID, postBody);
+  res.status(201).json({
+    success: true,
+    payload: updatedPost,
   });
 });     
