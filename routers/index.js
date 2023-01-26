@@ -41,11 +41,17 @@ router.get("/posts/:id", async function (req, res) {
 
 //post router - registering users
 router.post("/users", async function (req, res) {
-  const newUser = await createNewUser(req.body);
-  res.status(201).json({
-    success: true,
-    payload: newUser,
-  });
+  try{
+    const newUser = await createNewUser(req.body);
+    res.status(201).json({
+      success: true,
+      payload: newUser,
+    });
+  }
+  catch{
+    res.status(500).send(req.body)
+  }
+
 });     
 
 
