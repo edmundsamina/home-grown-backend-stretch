@@ -1,5 +1,5 @@
 import express from "express";
-import { updatePost, getAllUsers, getUserAndPlotByFirebaseID, getAllPosts, getPostsByFirebaseID, createNewUser, deletePost,createNewPost } from "../models/index.js";
+import { updatePlots, updatePost, getAllUsers, getUserAndPlotByFirebaseID, getAllPosts, getPostsByFirebaseID, createNewUser, deletePost,createNewPost } from "../models/index.js";
 
 
 export const router = express.Router();
@@ -87,3 +87,15 @@ router.patch("/posts/:id", async function (req, res) {
     payload: updatedPost,
   });
 });     
+
+//patch router - update plot table
+router.patch("/plots", async function (req, res) {
+  let postBody = req.body
+  const updatedPlot = await updatePlots(postBody);
+  res.status(201).json({
+    success: true,
+    payload: updatedPlot,
+  });
+}); 
+
+    

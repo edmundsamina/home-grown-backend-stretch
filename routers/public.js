@@ -1,5 +1,5 @@
 import express from "express";
-import { getAllUsers, getUserAndPlotByFirebaseID, getAllPosts, getPostsByFirebaseID, createNewUser, deletePost,createNewPost, updatePost } from "../models/index.js";
+import { updatePlots, getAllUsers, getUserAndPlotByFirebaseID, getAllPosts, getPostsByFirebaseID, createNewUser, deletePost,createNewPost, updatePost } from "../models/index.js";
 
 
 export const publicrouter = express.Router();
@@ -24,5 +24,6 @@ publicrouter.post("/users", async function (req, res) {
     payload: newUser,
   });
 });     
+
 
 

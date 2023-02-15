@@ -65,3 +65,12 @@ export async function updatePost(id, data){
   const postData = result.rows
   return postData;
 }
+
+
+export async function updatePlots(data){
+  const sqlQuery = `UPDATE plots SET plot_size = $2, plot_image=$3, location=$4 WHERE firebase_id = $1 RETURNING *`;
+  const sqlDependency = [data.firebase_id, data.plot_size, data.plot_image, data.location];
+  const result =  await pool.query(sqlQuery, sqlDependency);
+  const plotData = result.rows
+  return plotData;
+}
