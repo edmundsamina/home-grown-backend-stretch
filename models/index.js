@@ -74,3 +74,12 @@ export async function updatePlots(data){
   const plotData = result.rows
   return plotData;
 }
+
+
+export async function getAllMessagesByUser(id) {
+  const sqlQuery = `SELECT * FROM chat_messages WHERE user_one = $1 OR user_two = $1`;
+  const sqlDependency = [id];
+  const result = await pool.query(sqlQuery, sqlDependency);
+  const messages = result.rows;
+  return messages;
+}

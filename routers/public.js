@@ -1,5 +1,5 @@
 import express from "express";
-import { updatePlots, getAllUsers, getUserAndPlotByFirebaseID, getAllPosts, getPostsByFirebaseID, createNewUser, deletePost,createNewPost, updatePost } from "../models/index.js";
+import { updatePlots, getAllUsers, getUserAndPlotByFirebaseID, getAllPosts, getPostsByFirebaseID, createNewUser, deletePost,createNewPost, updatePost, getAllMessagesByUser } from "../models/index.js";
 
 
 export const publicrouter = express.Router();
@@ -25,5 +25,16 @@ publicrouter.post("/users", async function (req, res) {
   });
 });     
 
+
+
+//get all messages
+
+publicrouter.get("/messages/:id", async function (req, res) {
+  const messages = await getAllMessagesByUser(req.params.id);
+  res.status(200).json({
+    success: true,
+    payload: messages,
+  });
+});
 
 
