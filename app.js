@@ -9,11 +9,13 @@ const app = express();
 const httpServer = createServer(app);
 const socketIO = new Server(httpServer, {
   cors: {
-    origin: "http://localhost:3001",
+    origin: "http://localhost:3002",
+    credentials: true
   },
 });
 app.use(cors());
 app.use(express.json());
+
 socketIO.on("connection", (socket) => {
   console.log("user connected");
   socketIO.emit("messageResponse", "hello");
